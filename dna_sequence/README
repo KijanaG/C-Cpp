@@ -1,0 +1,83 @@
+Assignment: Project #1,  KJ Garrett - October 31, 2018
+
+Introduction to The Biologist's Grep 
+1) I will be using two data structures for the project: Tries and Arrays.
+   A Trie will allow me to organize repeatable characters in a more structured
+   manner than if I were to use a classic Tree or dynamic array alone. The 
+   Trie, under the hood, will be a Trie class, with public insert, remove and
+   query functions as well as private helper functions. There will be a 
+   TrieNode struct that stores a character (A, C, G, T or ?) and an array of 
+   node pointers that are either NULL or point to the next node within the DNA
+   sequence. A Trie was picked due to its speed and intuitiveness with 
+   regards to insertion, removal and querying. Whereas an array of strings
+   would repeat data that could be better consolidated. And this is a tree,
+   but more of a radix tree than a traditional binary search tree.
+
+2) The insert, remove, and query will have to account for various cases, which 
+   will make the functions more complex. There will be various conditionals 
+   for the “?” and the “*” in order to find relevant matches and the many 
+   possibilities that can be returned from the “?”.
+    a. Insert – call the query function or a similar helper function to see if
+       the string is already in the database handler. If it is not in the 
+       handler, insert the string letter by letter, while checking if the 
+       letter is already in the Trie. Add an is_end boolean for when the string
+       ends. If it is already in the Trie, return that it’s, “already in the 
+       Trie”. A question mark will act as all possible characters and will be 
+       the be placed as itself in the TrieNode array.
+    b. Query – Use a recursive function in order to compare the query string
+       with the database handler, the Trie. I will keep a count of the 
+       longest common prefix, or match, and will go deeper to find the 
+       sequence size if it is not a direct match. The closest matching 
+       sequence and its matching percentage will be returned to the console.
+       If a question mark is present, that will be considered a matching 
+       character and pursued as an avenue for a potential match, along with 
+       any other characters that match. As for the asterisk, I will return 
+       the string(s) that most closely resemble the query string.
+    c. Remove – Removal will occur only for strings that match fully. If 
+       there is a question mark it will also be accounted for as a possibility
+       for the removal string and will be checked along with any other matching
+       character. If there are multiple matching strings, they will all be 
+       removed. For the asterisk, any string(s) that matches the given string 
+       prior to the asterisk will be removed.
+3) The belief is that I am optimizing for time by using the Trie data 
+   structure, to insert, remove and query efficiently. For insertion, I will
+   have to check O(N) or less, where N is the length of the string being 
+   prompted for insertion; after checking if it is not there, I will proceed
+   to iterate through the Trie until I need to insert the remaining nodes in 
+   the DNA sequence, which is also O(N). After finishing the assignment, I will
+   go back and try to reduce this time complexity, although it is only linear. 
+   A query will also be O(N), where N is the number of characters in the DNA 
+   sequence; if the initial character does not resemble any characters in the 
+   Trie, the query will be constant time O(1). Removal, if the string is in the
+   Trie, will require linear iteration through the sequence that is to be 
+   removed and then deletion of each node backwards until another full sequence
+   is reached; this is also linear time – O(N).
+
+Acknowledgements: Cplusplusreference for setprecision() and other syntactical
+                  references and uncertainties.
+Purpose: The purpose of the program is to create a data structure that allows
+         for efficient read and write from a file that passes DNA sequences 
+         with a task to insert, remove or search in a databse handler, which
+         is the Trie data structure that I mentioned before. After conducting
+         the said function, the program writes to another file the response 
+         that the sequence was removed (or not) or found (or not). 
+
+Files: The provided files are the Trie data structure, the main driver for 
+       the program, and a test driver to make sure the functions work 
+       properly. I used text files for practice with the program but are
+       not being provided with the others. The Trie is called by a public
+       function parse_string or by test functions in the test.cpp driver.
+       It utilizes many helper functions (documented in the .h file) to 
+       operate the insert(), remove() and query() functions, which are also
+       described thoroughly in the header file. The * was implemented 
+       successfully and could delete and query the Trie database handler 
+       effectively, but I did not print each and every sequence removed for
+       the *. I did not reach the question mark problem either. But overall,
+       a fun and successful learning experience!
+
+Compile: Use ./SeqMatch [query file] [output location] to run the amin program
+         after calling make. Use make test and ./test to run the test file. 
+         Query.txt is not being uploaded, so a text file must be made in order
+         to effectively run the SeqMatch program.
+
+

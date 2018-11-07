@@ -1,0 +1,6 @@
+Match Found TACAGGT 100%
+Match Found TAGTGGA 100%
+Match Found ACCATAC 57.14% match
+Removed all sequences starting with TAC*
+Match Found TAGTTGGA 50% match
+Removed all sequences starting with AC*

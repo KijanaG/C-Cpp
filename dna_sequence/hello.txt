@@ -1,0 +1,9 @@
+Match Found TACAGGT 100%
+Match Found TAGTGGA 100%
+Match Found ACCATAC 57.14% match
+Match Found TAC 100%
+r TACAGGT removed
+r TAG not found
+r TAC removed
+r ACCATAC removed
+r TAGTGGA removed
