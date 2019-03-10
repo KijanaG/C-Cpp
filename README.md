@@ -1,5 +1,5 @@
 # C-Cpp
-Tufts University Computer Science C/C++ course overview
+Tufts University Computer Science Comp15/Comp40 course overview
 
 Two courses: the first consisting of a Data Structures curriculum (C++) 
 and the second Machine Structures & Assembly Language Programming (C). 
